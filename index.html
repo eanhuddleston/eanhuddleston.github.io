@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ean Huddleston — How Language Makes Intelligence General</title>
+  <meta name="description" content="Ean Huddleston, Independent Researcher. Preprint: How Language Makes Intelligence General — A computational theory of Emergent Symbolic Cognition (ESC).">
+  <meta name="author" content="Ean Huddleston">
+  <link rel="canonical" href="https://eanhuddleston.com/">
+
+  <!-- Google Scholar / Highwire Press Metadata -->
+  <meta name="citation_title" content="How Language Makes Intelligence General">
+  <meta name="citation_author" content="Huddleston, Ean">
+  <meta name="citation_author_orcid" content="0009-0005-2342-1953">
+  <meta name="citation_publication_date" content="2026/10/31">
+  <meta name="citation_pdf_url" content="https://eanhuddleston.com/Huddleston_2026_ESC.pdf">
+  <meta name="citation_abstract_html_url" content="https://eanhuddleston.com/">
+  <meta name="citation_keywords" content="large language models; language and thought; general intelligence; emergent symbolic cognition; chain-of-thought; cognitive architecture; causal modeling; world models">
+  <meta name="citation_language" content="en">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How Language Makes Intelligence General — Ean Huddleston">
+  <meta property="og:description" content="Large language models exhibit general-purpose reasoning even when trained on text alone. This paper derives Emergent Symbolic Cognition (ESC) from the computational demands of open-ended causal modeling.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://eanhuddleston.com/">
+
+  <style>
+    :root {
+      --bg: #fcfcfa;
+      --surface: #f4f3ef;
+      --border: #e2e0d8;
+      --text: #1c1d21;
+      --text-secondary: #4a4d57;
+      --text-muted: #6e7280;
+      --accent: #1d4ed8;
+      --accent-hover: #1e40af;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1117;
+        --surface: #161922;
+        --border: #262b38;
+        --text: #e8eaf0;
+        --text-secondary: #b4b9c7;
+        --text-muted: #7d8496;
+        --accent: #7aa2f7;
+        --accent-hover: #9bb8ff;
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 5rem;
+    }
+
+    /* Profile Header */
+    header {
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .author-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      margin: 0 0 0.25rem 0;
+      color: var(--text);
+    }
+
+    .author-affiliation {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin: 0 0 0.75rem 0;
+    }
+
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1.25rem;
+      font-size: 0.88rem;
+    }
+
+    .profile-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      border-bottom: 1px solid transparent;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .profile-links a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* Paper Section */
+    .section-heading {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 0 0 1rem 0;
+    }
+
+    .paper-title {
+      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+      font-size: clamp(1.5rem, 3.2vw, 2rem);
+      font-weight: 600;
+      line-height: 1.25;
+      margin: 0 0 0.5rem 0;
+      color: var(--text);
+    }
+
+    .paper-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0 0 1.35rem 0;
+    }
+
+    .paper-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.5rem 0.95rem;
+      border-radius: 5px;
+      font-size: 0.86rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-family: inherit;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .btn:hover {
+      border-color: var(--text-muted);
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      border-color: var(--text);
+    }
+
+    .bibtex-drawer {
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem 1.15rem;
+      margin: -1rem 0 2rem 0;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .bibtex-drawer.open {
+      display: block;
+    }
+
+    /* Abstract */
+    .abstract-block {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+
+    .abstract-text {
+      margin: 0 0 1.5rem 0;
+      font-size: 0.98rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    .keywords {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .keywords strong {
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    /* Previous Publications */
+    .prior-works {
+      margin-top: 2.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .pub-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .pub-item {
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--text-secondary);
+    }
+
+    .pub-item a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .pub-item a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 2.25rem 1.25rem 3.5rem;
+      }
+      .abstract-text {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1 class="author-name">Ean Huddleston</h1>
+      <p class="author-affiliation">Independent Researcher &middot; Cognitive Science &amp; Artificial Intelligence</p>
+      <div class="profile-links">
+        <a href="mailto:ean@eanhuddleston.com">ean@eanhuddleston.com</a>
+        <a href="https://orcid.org/0009-0005-2342-1953" target="_blank" rel="noopener me">
+          <svg width="14" height="14" viewBox="0 0 256 256" aria-hidden="true"><circle cx="128" cy="128" r="128" fill="#A6CE39"/><path fill="#FFF" d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111.2 178 93 148 93h-23.7v79.4zM78.6 66.8c-5.7 0-10.3-4.6-10.3-10.3s4.6-10.3 10.3-10.3 10.3 4.6 10.3 10.3-4.6 10.3-10.3 10.3z"/></svg>
+          ORCID
+        </a>
+        <a href="https://philarchive.org/rec/HUDTOS" target="_blank" rel="noopener">PhilArchive</a>
+      </div>
+    </header>
+
+    <main>
+      <div class="section-heading">Working Paper / Preprint</div>
+      <h2 class="paper-title">How Language Makes Intelligence General</h2>
+      <div class="paper-meta">Ean Huddleston &middot; October 2026</div>
+
+      <div class="paper-actions">
+        <a href="https://eanhuddleston.com/Huddleston_2026_ESC.pdf" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><polyline points="9 15 12 18 15 15"></polyline></svg>
+          Download PDF
+        </a>
+        <a href="https://philarchive.org/rec/HUDTOS" target="_blank" rel="noopener" class="btn">
+          PhilArchive Record
+        </a>
+        <button type="button" class="btn" id="bibtex-btn">BibTeX</button>
+      </div>
+
+      <pre class="bibtex-drawer" id="bibtex-box">@article{huddleston2026esc,
+  title   = {How Language Makes Intelligence General},
+  author  = {Huddleston, Ean},
+  year    = {2026},
+  month   = {10},
+  note    = {PhilArchive preprint},
+  url     = {https://philarchive.org/rec/HUDTOS}
+}</pre>
+
+      <section class="abstract-block" aria-labelledby="abstract-label">
+        <h3 class="section-heading" id="abstract-label">Abstract</h3>
+        <p class="abstract-text">
+          Large language models (LLMs) exhibit general-purpose reasoning even when trained on text alone. This raises a fundamental question: could language be not merely a tool for expressing preexisting thought, but a constitutive component of general intelligence? Here I address this question by analyzing what open-ended causal modeling demands of any finite system. These demands expose a core architectural tension: maintaining an adaptive world model requires graded, continuous plasticity, whereas constructing novel causal chains requires systematic, sequential commitment. From these competing constraints, I derive Emergent Symbolic Cognition (ESC), a computational theory proposing that general intelligence arises when a continuous, adaptive substrate&mdash;whether biological or artificial&mdash;internalizes the relational structure of a symbolic framework like language. This internalization serves a dual function: it organizes the substrate&rsquo;s continuous geometry into an abstract world model, and it supplies the composable elements for iterative symbolic generation. As each predicted symbol feeds back to reshape the internal state, it acts as a discrete ratchet that converts parallel associative processing into the sequential, step-by-step construction required to solve novel, dependency-structured problems. Because ESC is derived from substrate-agnostic constraints, a single architectural principle accounts for both the unique generality of human intelligence and the emergent capabilities of LLMs. From this architecture, I derive falsifiable predictions (including a sharp decay in the neural or hidden-state decodability of downstream symbols) and evaluate the theory against converging evidence from cognitive science and artificial intelligence&mdash;explaining why consolidated reasoning can operate without active language use, and showing how symbolic input alone can ground world models without direct sensory contact. Ultimately, ESC reframes language as a culturally inherited architecture for general-purpose cognition.
+        </p>
+
+        <div class="keywords">
+          <strong>Keywords:</strong> large language models, language and thought, general intelligence, emergent symbolic cognition, chain-of-thought, cognitive architecture, causal modeling, world models
+        </div>
+      </section>
+
+      <section class="prior-works" aria-labelledby="prior-pubs-label">
+        <h3 class="section-heading" id="prior-pubs-label">Previous Publications</h3>
+        <ul class="pub-list">
+          <li class="pub-item">
+            Benoit, R. G., Hulbert, J. C., <strong>Huddleston, E.</strong>, &amp; Anderson, M. C. (2015). Adaptive top&ndash;down suppression of hippocampal activity and the purging of intrusive memories from consciousness. <em>Journal of Cognitive Neuroscience</em>, 27(1), 96&ndash;111. <a href="https://doi.org/10.1162/jocn_a_00696" target="_blank" rel="noopener">https://doi.org/10.1162/jocn_a_00696</a>
+          </li>
+          <li class="pub-item">
+            <strong>Huddleston, E.</strong>, &amp; Anderson, M. C. (2012). Reassessing critiques of the independent probe method for studying inhibition. <em>Journal of Experimental Psychology: Learning, Memory, and Cognition</em>, 38(5), 1408&ndash;1418. <a href="https://doi.org/10.1037/a0027092" target="_blank" rel="noopener">https://doi.org/10.1037/a0027092</a>
+          </li>
+          <li class="pub-item">
+            Anderson, M. C., &amp; <strong>Huddleston, E.</strong> (2012). Towards a cognitive and neurobiological model of motivated forgetting. In R. F. Belli (Ed.), <em>True and False Recovered Memories: Toward a Reconciliation of the Debate</em> (Nebraska Symposium on Motivation, Vol. 58, pp. 53&ndash;120). Springer. <a href="https://doi.org/10.1007/978-1-4614-1195-6_3" target="_blank" rel="noopener">https://doi.org/10.1007/978-1-4614-1195-6_3</a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <span>&copy; 2026 Ean Huddleston</span>
+      <span>eanhuddleston.com</span>
+    </footer>
+  </div>
+
+  <script>
+    const bibBtn = document.getElementById('bibtex-btn');
+    const bibBox = document.getElementById('bibtex-box');
+    bibBtn.addEventListener('click', () => {
+      const isOpen = bibBox.classList.toggle('open');
+      if (isOpen && navigator.clipboard) {
+        navigator.clipboard.writeText(bibBox.textContent).then(() => {
+          const prev = bibBtn.textContent;
+          bibBtn.textContent = 'Copied BibTeX';
+          setTimeout(() => { bibBtn.textContent = prev; }, 1800);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
