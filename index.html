@@ -25,6 +25,84 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://eanhuddleston.com/">
 
+  <!-- Structured Data (Schema.org JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": "https://eanhuddleston.com/#profilepage",
+        "url": "https://eanhuddleston.com/",
+        "name": "Ean Huddleston — How Language Makes Intelligence General",
+        "mainEntity": {
+          "@id": "https://eanhuddleston.com/#author"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://eanhuddleston.com/#author",
+        "name": "Ean Huddleston",
+        "givenName": "Ean",
+        "familyName": "Huddleston",
+        "jobTitle": "Independent Researcher",
+        "url": "https://eanhuddleston.com/",
+        "email": "mailto:ean@eanhuddleston.com",
+        "knowsAbout": [
+          "Cognitive Science",
+          "Artificial Intelligence",
+          "Large Language Models",
+          "Emergent Symbolic Cognition",
+          "Language and Thought",
+          "Cognitive Architecture"
+        ],
+        "sameAs": [
+          "https://scholar.google.com/citations?user=Wu3NMMwAAAAJ&hl=en",
+          "https://orcid.org/0009-0005-2342-1953"
+        ]
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "@id": "https://eanhuddleston.com/#esc-paper",
+        "headline": "How Language Makes Intelligence General",
+        "name": "How Language Makes Intelligence General",
+        "author": {
+          "@id": "https://eanhuddleston.com/#author"
+        },
+        "datePublished": "2026-10-31",
+        "inLanguage": "en",
+        "url": "https://eanhuddleston.com/",
+        "mainEntityOfPage": "https://eanhuddleston.com/",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "DOI",
+          "value": "10.5281/zenodo.17162678"
+        },
+        "sameAs": [
+          "https://doi.org/10.5281/zenodo.17162678",
+          "https://zenodo.org/records/17162678"
+        ],
+        "encoding": {
+          "@type": "MediaObject",
+          "contentUrl": "https://eanhuddleston.com/Huddleston_2026_ESC.pdf",
+          "encodingFormat": "application/pdf"
+        },
+        "keywords": [
+          "large language models",
+          "language and thought",
+          "general intelligence",
+          "emergent symbolic cognition",
+          "chain-of-thought",
+          "cognitive architecture",
+          "causal modeling",
+          "world models"
+        ],
+        "description": "Large language models (LLMs) exhibit general-purpose reasoning even when trained on text alone. From the competing computational demands of open-ended causal modeling, this paper derives Emergent Symbolic Cognition (ESC), a computational theory proposing that general intelligence arises when a continuous, adaptive substrate internalizes the relational structure of a symbolic framework like language."
+      }
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --bg: #fcfcfa;
